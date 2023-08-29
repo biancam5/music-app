@@ -30,7 +30,7 @@ In this task, your mission is to create a basic music player using React.
 
 ## Notes:
 
-I thoroughly enjoyed building this Music app! As an additional feature, I've implemented a heart-icon to allow users to "like" songs.
+I had a lot of fun coding! I really enjoyed building this Music app! As an additional feature I've implemented a heart-icon to allow users to "like" songs.
 
 ### Technologies Used:
 
