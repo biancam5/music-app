@@ -1,0 +1,76 @@
+.player-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #fff;
+  color: rgb(11, 8, 8);
+  border-radius: 10px;
+}
+
+.song-cover {
+  width: 180px;
+  height: 180px;
+  border-radius: 35px;
+}
+
+.song-name {
+  margin-top: 12px;
+  font-size: 24px;
+}
+
+.song-artist {
+  font-size: 10px;
+  opacity: 0.7;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.play-pause-button {
+  background-color: #000000;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.playing-bar {
+  width: 80%;
+  height: 4px;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: relative;
+  margin-top: 10px;
+}
+
+.playing-bar span {
+  margin-right: 550px;
+}
+
+.playing-bar .end-time {
+  margin-right: 160px;
+}
+
+.like-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.like-icon {
+  font-size: 24px;
+  color: #070707;
+  transition: color 0.3s ease;
+}
+
+.like-icon:hover {
+  color: #ff5757;
+}

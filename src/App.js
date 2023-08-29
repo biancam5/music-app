@@ -1,23 +1,58 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import chillHop from "./chillHop";
+import { SongList } from "./components/songs/SongList";
+import { Player } from "./components/player/Player";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
+  const [songs, setSongs] = useState(chillHop);
+  const [currentSong, setCurrentSong] = useState(songs[0]);
+
+  const selectSongHandler = (song) => {
+    setCurrentSong(song);
+  };
+
+  const getNextSong = (currentSong) => {
+    const currentSongIndex = songs.findIndex(
+      (song) => song.id === currentSong.id
+    );
+    const nextSongIndex = (currentSongIndex + 1) % songs.length;
+    return songs[nextSongIndex];
+  };
+
+  const getPreviousSong = (currentSong) => {
+    const currentSongIndex = songs.findIndex(
+      (song) => song.id === currentSong.id
+    );
+    const previousSongIndex =
+      (currentSongIndex - 1 + songs.length) % songs.length;
+    return songs[previousSongIndex];
+  };
+
+  const playNextSong = () => {
+    const nextSong = getNextSong(currentSong);
+    setCurrentSong(nextSong);
+  };
+
+  const playPreviousSong = () => {
+    const previousSong = getPreviousSong(currentSong);
+    setCurrentSong(previousSong);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header>
+        <h1>Appendix A - Music App example</h1>
       </header>
+      <main>
+        <Player
+          currentSong={currentSong}
+          onNextSong={playNextSong}
+          onPreviousSong={playPreviousSong}
+        />
+        <SongList songs={songs} onSelectSong={selectSongHandler} />
+      </main>
     </div>
   );
 }
